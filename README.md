@@ -1,23 +1,45 @@
 # MMAC | Agencia Comunicacional Sustentable
 
-Sitio web interactivo desarrollado con React y Vite para MMAC, basado en la maqueta `documentacion/MMAC_PAGINA_WEB.pdf` y en el concepto de agencia comunicacional sustentable de `documentacion/MMAC__AGENCIA_COMUNICACIONAL.pdf`.
+Sitio web interactivo para MMAC basado en la maqueta `documentacion/MMAC_PAGINA_WEB.pdf`, la información de `documentacion/MMAC__AGENCIA_COMUNICACIONAL.pdf` y el logo `imagenes/logo_mmac.png`.
 
-## Desarrollo local
+## Publicación en GitHub Pages desde `/root`
+
+El repositorio quedó preparado para funcionar aunque GitHub Pages esté configurado como **Deploy from a branch** y carpeta **/(root)**. La página no depende de JSX, React compilado ni rutas absolutas: `index.html` carga archivos estáticos con rutas relativas (`./src/main.js`, `./src/styles.css` y `./imagenes/logo_mmac.png`).
+
+Pasos recomendados en GitHub:
+
+1. Ir a **Settings → Pages**.
+2. En **Build and deployment**, seleccionar **Deploy from a branch**.
+3. Elegir la rama del repositorio y la carpeta **/(root)**.
+4. Guardar y esperar a que GitHub Pages publique el sitio.
+
+## Organización
+
+```text
+src/
+  components/   Secciones reutilizables de la página.
+  data/         Contenido editable de proyectos, pilares, servicios y equipo.
+  utils/        Utilidades pequeñas compartidas por la lógica interactiva.
+  main.js       Ensambla la página y conecta los eventos.
+  styles.css    Estilos globales responsivos.
+```
+
+## Desarrollo local opcional
+
+No es necesario compilar para GitHub Pages en root, pero puedes levantar un servidor local con Vite:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build de producción
+## Validación opcional de producción
 
 ```bash
 npm run build
 ```
 
-## GitHub Pages
-
-La configuración usa `base: './'` en `vite.config.js` para que los assets funcionen correctamente cuando el sitio se publique desde GitHub Pages en una ruta de repositorio. También se incluye `.nojekyll` y un script de despliegue con `gh-pages`:
+Si prefieres publicar el contenido compilado en una rama `gh-pages`, también existe:
 
 ```bash
 npm run deploy
